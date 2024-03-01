@@ -1,17 +1,15 @@
 "use client";
+
 import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { signIn, signOut, useSession, getProviders } from "next-auth/react";
-import { Router } from "next/router";
 import { useRouter } from "next/navigation";
 
 export default function NavBar() {
   const { data: session } = useSession();
-  const router = useRouter();
 
   const [providers, setProviders] = useState(null);
-  const [toggleDropdown, setToggleDropdown] = useState(false);
 
   useEffect(() => {
     (async () => {
@@ -21,7 +19,7 @@ export default function NavBar() {
   }, []);
 
   return (
-    <nav className="bg-white border-gray-200 dark:bg-gray-900">
+    <nav className="bg-white border-gray-200 border-b dark:bg-gray-900">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
           <Image
@@ -89,7 +87,7 @@ export default function NavBar() {
                       type="button"
                       key={provider.name}
                       onClick={() => {
-                        signIn(provider.id)
+                        signIn(provider.id);
                       }}
                       className="black_btn"
                     >

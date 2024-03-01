@@ -32,6 +32,7 @@ const handler = NextAuth({
         if (!userExists) {
           await User.create({
             email: profile.email,
+            // username will be the name without spaces and lowercase
             username: profile.name.replace(" ", "").toLowerCase(),
             image: profile.picture,
           });
@@ -42,6 +43,9 @@ const handler = NextAuth({
         console.log("Error checking if user exists: ", error.message);
         return false;
       }
+    },
+    async redirect({ url, baseUrl }) {
+      return "/onboarding";
     },
   },
 });
