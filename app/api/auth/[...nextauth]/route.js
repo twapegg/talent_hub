@@ -4,6 +4,7 @@ import GoogleProvider from "next-auth/providers/google";
 import User from "@/models/user";
 
 import { connectToDB } from "@/utils/database";
+import { redirect } from "next/navigation";
 
 const handler = NextAuth({
   providers: [
@@ -34,13 +35,6 @@ const handler = NextAuth({
             username: profile.name.replace(" ", "").toLowerCase(),
             image: profile.picture,
           });
-
-          return {
-            redirect: {
-              destination: "/onboarding",
-              permanent: false,
-            },
-          };
         }
 
         return true;
