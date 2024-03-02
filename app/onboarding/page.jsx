@@ -16,31 +16,33 @@ export default function page() {
   };
 
   return (
-    <div className="mb-24 border-red-500 border lg:mb-0 lg:min-h-screen items-center pt-24">
-      <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
-        <div className="text-center">
-          <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-            What best describes you?
-          </h1>
-          <div className="mt-10 flex items-center justify-center gap-x-6">
-            <Link onClick={() => setSelectedRole(0)} href="#rolePref">
-              <button className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-                Job Seeker
-              </button>
-            </Link>
-            <a
-              onClick={() => setSelectedRole(1)}
-              href="#2"
-              className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-            >
-              Talent Recruiter
-            </a>
+    <div className="mb-24 border-red-500 border lg:mb-0 lg:min-h-screen items-center">
+      <div className="bg-gradient-to-r from-sky-600 to-indigo-900">
+        <div className="mx-auto max-w-2xl py-32 sm:py-32 lg:py-36">
+          <div className="text-center">
+            <h1 className="mt-5 text-4xl font-bold tracking-tight text-white sm:text-6xl">
+              What best describes you?
+            </h1>
+            <div className="mt-10 flex items-center justify-center gap-x-6">
+              <Link onClick={() => setSelectedRole(0)} href="#rolePref">
+                <button className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                  Job Seeker
+                </button>
+              </Link>
+              <a
+                onClick={() => setSelectedRole(1)}
+                href="#2"
+                className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+              >
+                Talent Recruiter
+              </a>
+            </div>
           </div>
         </div>
       </div>
 
       <section className="mb-24 border-red-500 border lg:mb-0 lg:min-h-screen flex flex-col items-center pt-24">
-        <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
+        <div className="mx-auto max-w-2xl py-32 sm:py-32 lg:py-36">
           <h1 className="text-xl font-bold tracking-tight text-gray-900 sm:text-6xl">
             {!selectedRole ? "Job" : "Candidate"} Preferences
           </h1>
@@ -62,24 +64,29 @@ export default function page() {
         </div>
       </section>
 
-      <section className="mb-24 border-red-500 border lg:mb-0 lg:min-h-screen flex flex-col items-center pt-24">
-        <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
-          <h1 className="text-xl font-bold tracking-tight text-gray-900 sm:text-6xl">
+      <section className="mb-24 border-red-500 border lg:mb-0 lg:min-h-screen flex flex-col items-center pt-10 bg-gradient-to-r from-sky-600 to-indigo-900">
+        <div className="mx-auto max-w-2xl py-32 sm:py-32 lg:py-32">
+          <h1 className="text-xl font-bold tracking-tight text-white sm:text-6xl mb-10">
             Level of Experience
           </h1>
-          <div className="mt-10 flex items-center justify-center gap-x-6">
+          <div className="mt-3 flex items-center justify-center gap-x-6 mb-10">
             <input
               type="number"
               placeholder="Years of Experience"
               className="rounded-md bg-white border px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
             />
           </div>
+          <div className="mt-3 flex items-center justify-center">
+            <Link href="/browse/joblistings">
+              <button
+                className="rounded-md mt-6 bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 
+            focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+              >
+                Browse Jobs
+              </button>
+            </Link>
+          </div>
         </div>
-        <Link href="/browse/joblistings">
-          <button className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-            Browse Jobs
-          </button>
-        </Link>
       </section>
     </div>
   );
