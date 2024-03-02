@@ -53,7 +53,12 @@ export default function NavBar() {
           >
             {session?.user ? (
               <div className="flex gap-3 md:gap-5">
-                <Link href="/browse/joblistings/create" className="black_btn">
+                <Link
+                  href="/browse/joblistings/create"
+                  className="text-white bg-gradient-to-r from-cyan-800 via-cyan-900 to-cyan-600 
+                hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 shadow-lg 
+                shadow-cyan-500/50 dark:shadow-lg dark:shadow-cyan-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+                >
                   Create Job Listing
                 </Link>
 
