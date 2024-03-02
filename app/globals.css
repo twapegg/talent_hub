@@ -40,6 +40,29 @@
   filter: invert(1);
 }
 
+.bgimg {
+  background-image: url("https://media.istockphoto.com/id/1349094945/photo/human-using-a-computer-laptop-for-searching-for-job-and-fill-out-personal-data-on-job-website.jpg?s=1024x1024&w=is&k=20&c=dyoloS79kqzXXVaDz3UzB8NmHuXDHbeJHdROrjwWZII=");
+  filter: blur(16px);
+  -webkit-filter: blur(16px);
+  height: 100%;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.bgtxt {
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 100%;
+  padding: 100%;
+  text-align: center;
+}
+
 .gradient {
   height: fit-content;
   z-index: 3;
@@ -168,3 +191,4 @@
 .flex-between {
   @apply flex justify-between items-center;
 }
+
