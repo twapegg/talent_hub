@@ -41,21 +41,6 @@ export default function NavBar() {
           aria-expanded="false"
         >
           <span className="sr-only">Open main menu</span>
-          <svg
-            className="w-5 h-5"
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 17 14"
-          >
-            <path
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M1 1h15M1 7h15M1 13h15"
-            />
-          </svg>
         </button>
 
         <div
@@ -68,12 +53,7 @@ export default function NavBar() {
           >
             {session?.user ? (
               <div className="flex gap-3 md:gap-5">
-                <Link
-                  href="/create-prompt"
-                  className="text-white bg-gradient-to-r from-cyan-800 via-cyan-900 to-cyan-600 
-                hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 shadow-lg 
-                shadow-cyan-500/50 dark:shadow-lg dark:shadow-cyan-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
-                >
+                <Link href="/browse/joblistings/create" className="black_btn">
                   Create Job Listing
                 </Link>
 

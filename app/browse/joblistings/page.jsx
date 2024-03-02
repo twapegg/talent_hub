@@ -33,10 +33,13 @@ export default function page() {
   ];
 
   return (
-    <div>
-      {mockData.map((job, index) => (
-        <JobCard key={index} {...job} />
-      ))}
+    <div className="flex">
+      <div className="grid grid-cols-2 w-9/12">
+        {mockData.map((job, index) => (
+          <JobCard key={index} {...job} />
+        ))}
+      </div>
+      <div className="flex m-20 p-10 bg-slate-500">filter</div>
     </div>
   );
 }
