@@ -2,23 +2,28 @@
 
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { signIn, getProviders } from "next-auth/react";
 
 export default function Hero() {
   const router = useRouter();
 
   const { data: session } = useSession();
 
-  const closeModal = (e) => {
-    e.preventDefault();
-    setOpenModal(false);
-  };
+  const [providers, setProviders] = useState(null);
+
+  useEffect(() => {
+    (async () => {
+      const res = await getProviders();
+      setProviders(res);
+    })();
+  }, []);
 
   return (
     <>
       {!session?.user ? (
         <div className="relative isolate px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl py-32 sm:py-32 lg:py-36">
+          <div className="mx-auto max-w-2xl py-30 sm:py-32 lg:py-36">
             <div className="text-center">
               <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
                 Welcome to Talent Hub!
@@ -28,14 +33,26 @@ export default function Hero() {
                 ever-fast pace of the corporate world.
               </p>
               <div className="mt-10 flex items-center justify-center gap-x-6">
+                <>
+                  <div className="bg-transparent">
+                    {providers &&
+                      Object.values(providers).map((provider) => (
+                        <button
+                          type="button"
+                          key={provider.name}
+                          onClick={() => {
+                            signIn(provider.id);
+                          }}
+                          className="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+                        >
+                          Get Started
+                        </button>
+                      ))}
+                  </div>
+                </>
+
                 <a
-                  href="#"
-                  className="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
-                >
-                  Get started
-                </a>
-                <a
-                  href="#"
+                  href="#aboutus"
                   className="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
                 >
                   Learn more <span aria-hidden="true">→</span>
@@ -59,7 +76,7 @@ export default function Hero() {
                 <button
                   data-modal-target="select-modal"
                   data-modal-toggle="select-modal"
-                  href="#"
+                  href="#about"
                   class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                 >
                   Job Seeker
