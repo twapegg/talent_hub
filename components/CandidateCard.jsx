@@ -39,11 +39,8 @@ export default function CandidateCard({
               </span>
             </div>
           </div>
-          <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-            View Resume
-            <span>
-              <FaArrowRightLong />
-            </span>
+          <button class="mt-10 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+            View Resume →
           </button>
         </div>
       </div>
